@@ -1,15 +1,22 @@
 import numpy as np
+from scipy import linalg
+import time
+import random
 
 
-def sol():
-    counter = 0
-    a = np.array([[3, 2, 0], [1, -1, 0], [0, 5, 1]])
-    b = np.array([2, 4, -1])
-    from scipy import linalg
+def sol(a, b):
+    start_time = time.time()
     x = linalg.solve(a, b)
-    counter = counter + len(a)*3
-    return x, np.dot(a, x) == b, counter
+    end_time = time.time()
+    time_1 = end_time - start_time
+    return x, np.dot(a, x) == b, time_1
 
 
 if __name__ == "__main__":
-    print(sol())
+    for i in range(10):
+        c = np.array([[random.randint(0, 100), random.randint(0, 100), random.randint(0, 100)], [random.randint(0, 100), random.randint(0, 100), random.randint(0, 100)], [random.randint(0, 100), random.randint(0, 100), random.randint(0, 100)]])
+        d = np.array([[random.randint(0, 100)], [random.randint(0, 100)], [random.randint(0, 100)]])
+        print(sol(c, d))
+
+
+
