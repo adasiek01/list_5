@@ -2,6 +2,11 @@ from turtle import *
 
 
 def koch_curve(block, number):
+    """
+    Function that draws Koch Curve for given parameters
+    :param block: length of one step
+    :param number: row of curve
+    """
     if number < 0 or not (float(number)).is_integer():  # is_integer() works for float types, for e.g. 1.0.is_integer() == True
         raise IndexError("Variable n should be an integer higher than 0.")
 
