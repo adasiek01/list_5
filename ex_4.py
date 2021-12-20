@@ -1,18 +1,21 @@
 from turtle import *
 
 
-def koch_curve(block, apex):
-    if apex == 0:
+def koch_curve(block, number):
+    if number < 0 or not (float(number)).is_integer():  # is_integer() works for float types, for e.g. 1.0.is_integer() == True
+        raise IndexError("Variable n should be an integer higher than 0.")
+
+    if number == 0:
         forward(block)
         return
     block /= 3
-    koch_curve(block, apex - 1)
+    koch_curve(block, number - 1)
     left(60)
-    koch_curve(block, apex - 1)
+    koch_curve(block, number - 1)
     right(120)
-    koch_curve(block, apex - 1)
+    koch_curve(block, number - 1)
     left(60)
-    koch_curve(block, apex - 1)
+    koch_curve(block, number - 1)
 
 
 if __name__ == "__main__":
